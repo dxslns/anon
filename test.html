@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Анонимная Помощь</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #ff6b6b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .likes {
+            cursor: pointer;
+            font-size: 18px;
+            user-select: none;
+        }
+
+        .comment-box {
+            margin-top: 10px;
+        }
+
+        .comment {
+            padding: 5px 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>🔥 Анонимная Помощь</header>
+
+    <main>
+        <section id="create-post">
+            <h2>Поделитесь ситуацией</h2>
+            <textarea id="postText" rows="4" placeholder="Напишите, с чем вы столкнулись..."></textarea>
+            <button onclick="addPost()">Опубликовать</button>
+        </section>
+
+        <section id="trending">
+            <h2>В тренде</h2>
+            <div id="postsContainer"></div>
+        </section>
+    </main>
+
+    <script>
+        let posts = JSON.parse(localStorage.getItem("posts") || "[]");
+
+        function savePosts() {
+            localStorage.setItem("posts", JSON.stringify(posts));
+        }
+
+        function addPost() {
+            const text = document.getElementById("postText").value.trim();
+            if (text) {
+                posts.push({
+                    id: Date.now(),
+                    text,
+                    likes: 0,
+                    comments: []
+                });
+                document.getElementById("postText").value = "";
+                savePosts();
+                renderPosts();
+            }
+        }
+
+        function addComment(postId, inputId) {
+            const post = posts.find(p => p.id === postId);
+            const input = document.getElementById(inputId);
+            const text = input.value.trim();
+            if (text) {
+                post.comments.push(text);
+                input.value = "";
+                savePosts();
+                renderPosts();
+            }
+        }
+
+        function likePost(postId) {
+            const post = posts.find(p => p.id === postId);
+            post.likes++;
+            savePosts();
+            renderPosts();
+        }
+
+        function renderPosts() {
+            const container = document.getElementById("postsContainer");
+            container.innerHTML = "";
+            posts.sort((a, b) => b.likes - a.likes);
+            for (let post of posts) {
+                const postEl = document.createElement("div");
+                postEl.className = "post";
+                postEl.innerHTML = `
+              <p>${post.text}</p>
+              <div class="likes" onclick="likePost(${post.id})">🔥 ${post.likes}</div>
+
+              <div class="comment-box">
+                <input type="text" id="comment-${post.id}" placeholder="Ваш ответ..." />
+                <button onclick="addComment(${post.id}, 'comment-${post.id}')">Ответить</button>
+              </div>
+              <div class="comments">
+                ${post.comments.map(c => `<div class="comment">${c}</div>`).join("")}
+              </div>
+            `;
+                container.appendChild(postEl);
+            }
+        }
+
+        renderPosts();
+    </script>
+</body>
+</html>
