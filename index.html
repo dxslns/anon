@@ -1,163 +1,579 @@
-﻿<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8" />
-    <title>Анонимная Помощь</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikita Minaev | UX & First Impression Audits</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #3a86ff;
+            --light-blue: #e9f2ff;
+            --dark-text: #1a1a1a;
+            --light-text: #6c757d;
+            --border-color: #e9ecef;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            background: #fafafa;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: #fff;
         }
-
-        header {
-            background: #ff6b6b;
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .text-primary-custom {
+            color: var(--primary-blue) !important;
+        }
+        
+        .bg-light-custom {
+            background-color: var(--light-blue) !important;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
             color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 10px 24px;
+            font-weight: 500;
         }
-
-        main {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        textarea, input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        button {
-            background: #ff6b6b;
+        
+        .btn-primary-custom:hover {
+            background-color: #2a75f5;
+            border-color: #2a75f5;
             color: white;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            font-weight: 500;
+            padding: 10px 24px;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .card {
             border: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 5px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
         }
-
-        .post {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            padding: 15px;
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 24px;
         }
-
-        .likes {
-            cursor: pointer;
-            font-size: 18px;
-            user-select: none;
+        
+        .pricing-card {
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
         }
-
-        .comment-box {
-            margin-top: 10px;
+        
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
         }
-
-        .comment {
-            padding: 5px 10px;
-            background: #f0f0f0;
-            border-radius: 5px;
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list i {
+            color: var(--primary-blue);
+            margin-right: 10px;
             margin-top: 5px;
         }
-
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+        
+        .hero-section {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+        
+        .footer {
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 0.25rem rgba(58, 134, 255, 0.25);
         }
     </style>
 </head>
 <body>
-    <header>🔥 Анонимная Помощь</header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-primary-custom" href="#">Nikita Minaev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section id="create-post">
-            <h2>Поделитесь ситуацией</h2>
-            <textarea id="postText" rows="4" placeholder="Напишите, с чем вы столкнулись..."></textarea>
-            <button onclick="addPost()">Опубликовать</button>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-3">Nikita Minaev</h1>
+                    <h2 class="h3 text-primary-custom mb-4">UX & First Impression Audits for Early-Stage Products</h2>
+                    <p class="lead mb-4">I help early-stage products improve clarity, trust, and first-time user experience — so users don't bounce in the first minute.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-primary-custom btn-lg">Get a Free Pre-Audit</a>
+                        <a href="#process" class="btn btn-outline-custom btn-lg">How It Works</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body">
+                            <h4 class="mb-3">Best fit for:</h4>
+                            <ul class="list-unstyled feature-list">
+                                <li><i class="bi bi-check-circle-fill"></i> Early-stage startups</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Solo founders or small teams</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Products preparing to launch or recently launched</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Founders who care about first impression & retention</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="trending">
-            <h2>В тренде</h2>
-            <div id="postsContainer"></div>
-        </section>
-    </main>
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light-custom">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="section-title">What I Do</h2>
+                    <p class="lead">I review early-stage websites and apps with a focus on:</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <h4>First Impression</h4>
+                        <p class="text-muted">First 10–30 seconds experience analysis to understand what users see and feel immediately.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h4>Clarity of Value</h4>
+                        <p class="text-muted">Evaluating how clearly your product communicates its value and next steps for users.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <h4>Visual Trust & UI Cleanliness</h4>
+                        <p class="text-muted">Assessing visual design elements that build (or break) user trust and perception.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4>Mobile Usability</h4>
+                        <p class="text-muted">Testing and optimizing the mobile experience for on-the-go users.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h4>Friction Detection</h4>
+                        <p class="text-muted">Identifying small issues that quietly kill engagement and conversion rates.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h4>Async Process</h4>
+                        <p class="text-muted">Everything is async — no calls, no meetings, just clear, actionable feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Process Section -->
+    <section id="process" class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="lead">Simple and straightforward process designed for busy founders.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">1</div>
+                            <h4>Share Your Product</h4>
+                            <p>You share a link to your website or app along with any specific concerns you have.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">2</div>
+                            <h4>Free Pre-Audit</h4>
+                            <p>I do a short pre-audit and share 2–3 high-level observations within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">3</div>
+                            <h4>Full UX Audit (Optional)</h4>
+                            <p>If the pre-audit is useful, I prepare a comprehensive UX audit with actionable insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card p-5 bg-light-custom border-0">
+                        <h3 class="mb-4">What's Included in a Full UX Audit</h3>
+                        <p class="lead mb-4">You'll receive a concise PDF (1–2 pages) with:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Clear list of UX & UI issues</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Screenshots with explanations</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Priority ranking (what to fix first)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Quick wins vs deeper improvements</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Focus on first-time and mobile users</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> No fluff, no generic advice</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="fst-italic">Optionally, I can help fix or redesign key parts in Figma if needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-light-custom">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Pricing</h2>
+                    <p class="lead">Simple, transparent pricing with no hidden fees.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Pre-Audit</h4>
+                            <h2 class="display-4 fw-bold mb-3">Free</h2>
+                            <p class="text-muted mb-4">Get started with no commitment</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>2–3 high-level observations</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Delivered within 24 hours</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Actionable insights</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-custom w-100">Get Free Pre-Audit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100 featured">
+                        <div class="card-body text-center">
+                            <span class="badge bg-primary-custom rounded-pill mb-3 py-2 px-3">Most Popular</span>
+                            <h4 class="card-title mb-3">Full UX Audit</h4>
+                            <h2 class="display-4 fw-bold mb-3">$XX</h2>
+                            <p class="text-muted mb-4">Comprehensive analysis</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>1–2 page PDF with concrete issues</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Screenshots with explanations</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Priority ranking</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Quick wins vs deeper improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Focus on first-time & mobile users</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary-custom w-100">Order Full Audit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Fix / Redesign Support</h4>
+                            <h2 class="display-4 fw-bold mb-3">Custom</h2>
+                            <p class="text-muted mb-4">Tailored to your needs</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Figma design improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>UI fixes and enhancements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Deeper UX improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Personalized support</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Flexible engagement</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-custom w-100">Discuss Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Want a Quick Review?</h2>
+                    <p class="lead">Send me your product link and I'll take a look.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 p-md-5">
+                        <div class="card-body">
+                            <form id="contactForm" class="contact-form">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                        <input type="url" class="form-control" id="productUrl" placeholder="Product URL" required>
+                                        <label for="productUrl">Product URL</label>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" placeholder="Any specific concerns or questions?" style="height: 150px"></textarea>
+                                        <label for="message">Any specific concerns or questions? (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg py-3">Send for Free Pre-Audit</button>
+                                </div>
+                                <p class="text-muted small mt-3 text-center">I'll review your product and send 2-3 observations within 24 hours. No spam, no commitment.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="h4 mb-3">Nikita Minaev</h3>
+                    <p class="mb-4">UX & First Impression Audits for Early-Stage Products</p>
+                    <p class="text-muted">Helping early-stage products improve clarity, trust, and first-time user experience.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex justify-content-lg-end">
+                        <div>
+                            <h5 class="mb-3">Connect</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-twitter fs-5"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-linkedin fs-5"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-dribbble fs-5"></i>
+                                </a>
+                                <a href="mailto:hello@example.com" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-envelope fs-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="text-muted">&copy; <span id="currentYear"></span> Nikita Minaev. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        let posts = JSON.parse(localStorage.getItem("posts") || "[]");
-
-        function savePosts() {
-            localStorage.setItem("posts", JSON.stringify(posts));
-        }
-
-        function addPost() {
-            const text = document.getElementById("postText").value.trim();
-            if (text) {
-                posts.push({
-                    id: Date.now(),
-                    text,
-                    likes: 0,
-                    comments: []
-                });
-                document.getElementById("postText").value = "";
-                savePosts();
-                renderPosts();
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const productUrl = document.getElementById('productUrl').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this demo, we'll just show an alert
+            alert(`Thanks ${name}! I've received your request and will review ${productUrl} within 24 hours. I'll send my observations to ${email}.`);
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow');
+            } else {
+                navbar.classList.remove('shadow');
             }
-        }
-
-        function addComment(postId, inputId) {
-            const post = posts.find(p => p.id === postId);
-            const input = document.getElementById(inputId);
-            const text = input.value.trim();
-            if (text) {
-                post.comments.push(text);
-                input.value = "";
-                savePosts();
-                renderPosts();
-            }
-        }
-
-        function likePost(postId) {
-            const post = posts.find(p => p.id === postId);
-            post.likes++;
-            savePosts();
-            renderPosts();
-        }
-
-        function renderPosts() {
-            const container = document.getElementById("postsContainer");
-            container.innerHTML = "";
-            posts.sort((a, b) => b.likes - a.likes);
-            for (let post of posts) {
-                const postEl = document.createElement("div");
-                postEl.className = "post";
-                postEl.innerHTML = `
-              <p>${post.text}</p>
-              <div class="likes" onclick="likePost(${post.id})">🔥 ${post.likes}</div>
-
-              <div class="comment-box">
-                <input type="text" id="comment-${post.id}" placeholder="Ваш ответ..." />
-                <button onclick="addComment(${post.id}, 'comment-${post.id}')">Ответить</button>
-              </div>
-              <div class="comments">
-                ${post.comments.map(c => `<div class="comment">${c}</div>`).join("")}
-              </div>
-            `;
-                container.appendChild(postEl);
-            }
-        }
-
-        renderPosts();
+        });
     </script>
 </body>
 </html>
