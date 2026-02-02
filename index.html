@@ -9,101 +9,50 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #3a86ff;
-            --primary-blue-dark: #2667d9;
-            --light-blue: #f0f7ff;
-            --light-blue-2: #e6f0ff;
-            --dark-text: #1a1a1a;
-            --dark-text-2: #2d3748;
-            --light-text: #6c757d;
-            --light-text-2: #8a94a6;
-            --border-color: #e9ecef;
-            --border-color-2: #d1d9e6;
-            --white: #ffffff;
-            --bg-light: #f8fafc;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            --primary-blue: #2563EB;
+            --light-blue: #EFF6FF;
+            --dark-text: #1F2937;
+            --light-text: #6B7280;
+            --white: #FFFFFF;
+            --bg-offwhite: #F9FAFB;
+            --border-color: #E5E7EB;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
-        /* Базовые стили для всех устройств */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
+        /* Базовые стили */
         body {
             font-family: 'Inter', sans-serif;
             color: var(--dark-text);
             line-height: 1.6;
             background-color: var(--white);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Типографика с учетом всех разрешений */
-        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+        h1, h2, h3, h4, h5, .display-1, .display-2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
+            font-weight: 600;
             margin-bottom: 0.5em;
         }
         
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        .lead {
-            font-size: 1.25rem;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        
-        /* Адаптивные контейнеры */
-        .container-adaptive {
-            width: 100%;
-            padding-right: var(--bs-gutter-x, 0.75rem);
-            padding-left: var(--bs-gutter-x, 0.75rem);
-            margin-right: auto;
-            margin-left: auto;
-        }
-        
-        /* Адаптивные секции */
-        .section {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-lg {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-        
-        .section-xl {
-            padding-top: 7rem;
-            padding-bottom: 7rem;
-        }
-        
-        /* Заголовки секций */
         .section-title {
             position: relative;
-            padding-bottom: 1rem;
-            margin-bottom: 2.5rem;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
         }
         
         .section-title-center {
@@ -115,213 +64,74 @@
             transform: translateX(-50%);
         }
         
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), #6ea8ff);
-            border-radius: 2px;
-        }
-        
-        /* Цвета */
         .text-primary-custom {
             color: var(--primary-blue) !important;
-        }
-        
-        .bg-primary-custom {
-            background-color: var(--primary-blue) !important;
         }
         
         .bg-light-custom {
             background-color: var(--light-blue) !important;
         }
         
-        .bg-light-custom-2 {
-            background-color: var(--light-blue-2) !important;
-        }
-        
-        /* Кнопки */
-        .btn {
-            font-weight: 600;
-            border-radius: var(--radius-sm);
-            transition: all 0.3s ease;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
+        .bg-offwhite {
+            background-color: var(--bg-offwhite) !important;
         }
         
         .btn-primary-custom {
             background-color: var(--primary-blue);
             border-color: var(--primary-blue);
             color: var(--white);
+            padding: 10px 24px;
+            font-weight: 500;
+            border-radius: 8px;
         }
         
         .btn-primary-custom:hover {
-            background-color: var(--primary-blue-dark);
-            border-color: var(--primary-blue-dark);
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
             color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
         
         .btn-outline-custom {
             border: 2px solid var(--primary-blue);
             color: var(--primary-blue);
+            font-weight: 500;
+            padding: 10px 24px;
+            border-radius: 8px;
             background-color: transparent;
         }
         
         .btn-outline-custom:hover {
             background-color: var(--primary-blue);
             color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
         
-        /* Карточки */
         .card {
             border: none;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
             height: 100%;
             background-color: var(--white);
         }
         
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
         
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .card-title {
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        
-        /* Навигация */
-        .navbar {
-            padding: 1rem 0;
-            background-color: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.75rem;
-            color: var(--primary-blue) !important;
-        }
-        
-        .nav-link {
-            font-weight: 500;
-            color: var(--dark-text) !important;
-            padding: 0.5rem 1rem !important;
-            margin: 0 0.25rem;
-            border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-blue) !important;
-            background-color: var(--light-blue);
-        }
-        
-        .navbar-toggler {
-            border: none;
-            padding: 0.5rem;
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-        }
-        
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-        
-        /* Hero секция */
-        .hero-section {
-            padding-top: 8rem;
-            padding-bottom: 5rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section:before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(58, 134, 255, 0.1) 0%, rgba(58, 134, 255, 0) 70%);
-            border-radius: 50%;
-        }
-        
-        .hero-section:after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(58, 134, 255, 0.08) 0%, rgba(58, 134, 255, 0) 70%);
-            border-radius: 50%;
-        }
-        
-        /* Иконки сервисов */
         .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-blue), #6ea8ff);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-size: 1.75rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Процесс */
-        .process-step {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .process-step-number {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary-blue), #6ea8ff);
-            border-radius: 50%;
+            background-color: var(--light-blue);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
-            box-shadow: var(--shadow-md);
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 24px;
         }
         
-        /* Ценовые карточки */
         .pricing-card {
             border: 2px solid var(--border-color);
             transition: all 0.3s ease;
@@ -330,123 +140,55 @@
         .pricing-card.featured {
             border-color: var(--primary-blue);
             transform: scale(1.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing-card.featured:before {
-            content: 'Most Popular';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--dark-text);
-            line-height: 1;
-        }
-        
-        /* Списки особенностей */
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
         }
         
         .feature-list li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
         }
         
         .feature-list i {
             color: var(--primary-blue);
-            margin-right: 0.75rem;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
+            margin-right: 10px;
+            margin-top: 5px;
         }
         
-        /* Форма */
-        .contact-form .form-control {
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            padding: 0.875rem 1rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+        .navbar {
+            padding: 1rem 0;
             background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
         }
         
-        .contact-form .form-control:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 0.25rem rgba(58, 134, 255, 0.25);
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--primary-blue) !important;
         }
         
-        .form-floating>label {
-            padding: 1rem 1rem;
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-text) !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
         }
         
-        /* Футер */
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue) !important;
+            background-color: var(--light-blue);
+        }
+        
         .footer {
-            background-color: var(--bg-light);
-            padding: 4rem 0 2rem;
-            border-top: 1px solid var(--border-color);
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
         }
         
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background-color: var(--white);
-            border-radius: 50%;
-            color: var(--primary-blue);
-            font-size: 1.25rem;
-            margin-right: 0.75rem;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Анимации */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Специфические медиа-запросы для всех разрешений */
+        /* Адаптивные медиа-запросы */
         
         /* Мобильные устройства (до 576px) */
         @media (max-width: 575.98px) {
@@ -455,178 +197,112 @@
             }
             
             .section {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-            
-            .section-lg {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-            
-            .section-xl {
-                padding-top: 4rem;
-                padding-bottom: 4rem;
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
             }
             
             .hero-section {
-                padding-top: 6rem;
-                padding-bottom: 3rem;
-            }
-            
-            .display-3 {
-                font-size: 2.5rem;
+                padding-top: 6rem !important;
+                padding-bottom: 3rem !important;
             }
             
             .display-4 {
-                font-size: 2rem;
+                font-size: 2rem !important;
+            }
+            
+            .display-5 {
+                font-size: 1.5rem !important;
+            }
+            
+            .lead {
+                font-size: 1rem !important;
             }
             
             .btn-lg {
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
+                padding: 0.75rem 1.5rem !important;
+                font-size: 1rem !important;
             }
             
-            .container, .container-sm {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-            
-            .price {
-                font-size: 2.5rem;
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
             }
             
             .pricing-card.featured {
-                transform: none;
+                transform: none !important;
                 margin-top: 1rem;
                 margin-bottom: 1rem;
             }
             
-            .pricing-card.featured:before {
-                top: 15px;
-                right: -30px;
-                font-size: 0.65rem;
-                padding: 4px 30px;
+            .section-title:after {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
             }
             
             .card-body {
-                padding: 1.25rem;
+                padding: 1.25rem !important;
             }
             
             .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 20px !important;
+                margin-bottom: 15px !important;
             }
         }
         
         /* Планшеты (от 576px до 768px) */
         @media (min-width: 576px) and (max-width: 767.98px) {
-            html {
-                font-size: 15px;
-            }
-            
             .section {
-                padding-top: 2.5rem;
-                padding-bottom: 2.5rem;
-            }
-            
-            .section-lg {
-                padding-top: 3.5rem;
-                padding-bottom: 3.5rem;
-            }
-            
-            .section-xl {
-                padding-top: 4.5rem;
-                padding-bottom: 4.5rem;
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
             }
             
             .hero-section {
-                padding-top: 7rem;
-                padding-bottom: 4rem;
-            }
-            
-            .display-3 {
-                font-size: 3rem;
+                padding-top: 7rem !important;
+                padding-bottom: 4rem !important;
             }
             
             .display-4 {
-                font-size: 2.25rem;
-            }
-            
-            .price {
-                font-size: 3rem;
+                font-size: 2.25rem !important;
             }
             
             .pricing-card.featured {
-                transform: none;
+                transform: none !important;
             }
         }
         
         /* Планшеты (от 768px до 992px) */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .section {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-            
-            .section-lg {
-                padding-top: 4rem;
-                padding-bottom: 4rem;
-            }
-            
-            .section-xl {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
             }
             
             .hero-section {
-                padding-top: 8rem;
-                padding-bottom: 5rem;
-            }
-            
-            .display-3 {
-                font-size: 3.25rem;
+                padding-top: 8rem !important;
+                padding-bottom: 5rem !important;
             }
             
             .display-4 {
-                font-size: 2.5rem;
-            }
-            
-            .price {
-                font-size: 3.25rem;
+                font-size: 2.5rem !important;
             }
         }
         
         /* Ноутбуки (от 992px до 1200px) */
         @media (min-width: 992px) and (max-width: 1199.98px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl {
+                max-width: 960px;
+            }
+            
             .section {
-                padding-top: 4rem;
-                padding-bottom: 4rem;
-            }
-            
-            .section-lg {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
-            }
-            
-            .section-xl {
-                padding-top: 6rem;
-                padding-bottom: 6rem;
+                padding-top: 5rem !important;
+                padding-bottom: 5rem !important;
             }
             
             .hero-section {
-                padding-top: 9rem;
-                padding-bottom: 6rem;
-            }
-            
-            .container, .container-lg, .container-md, .container-sm, .container-xl {
-                max-width: 960px;
+                padding-top: 9rem !important;
+                padding-bottom: 6rem !important;
             }
         }
         
@@ -644,55 +320,27 @@
             }
             
             .section {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
-            }
-            
-            .section-lg {
-                padding-top: 7rem;
-                padding-bottom: 7rem;
-            }
-            
-            .section-xl {
-                padding-top: 9rem;
-                padding-bottom: 9rem;
+                padding-top: 6rem !important;
+                padding-bottom: 6rem !important;
             }
             
             .hero-section {
-                padding-top: 10rem;
-                padding-bottom: 8rem;
-            }
-            
-            .display-1 {
-                font-size: 5rem;
-            }
-            
-            .display-2 {
-                font-size: 4.5rem;
-            }
-            
-            .display-3 {
-                font-size: 4rem;
+                padding-top: 10rem !important;
+                padding-bottom: 8rem !important;
             }
             
             .display-4 {
-                font-size: 3.5rem;
+                font-size: 3rem !important;
             }
             
             .lead {
-                font-size: 1.5rem;
+                font-size: 1.25rem !important;
             }
             
             .service-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
-            
-            .process-step-number {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
+                width: 70px !important;
+                height: 70px !important;
+                font-size: 28px !important;
             }
         }
         
@@ -707,82 +355,39 @@
             }
             
             .section {
-                padding-top: 7rem;
-                padding-bottom: 7rem;
-            }
-            
-            .section-lg {
-                padding-top: 10rem;
-                padding-bottom: 10rem;
-            }
-            
-            .section-xl {
-                padding-top: 12rem;
-                padding-bottom: 12rem;
+                padding-top: 8rem !important;
+                padding-bottom: 8rem !important;
             }
             
             .hero-section {
-                padding-top: 12rem;
-                padding-bottom: 10rem;
-            }
-            
-            .display-1 {
-                font-size: 6rem;
-            }
-            
-            .display-2 {
-                font-size: 5.5rem;
-            }
-            
-            .display-3 {
-                font-size: 5rem;
+                padding-top: 12rem !important;
+                padding-bottom: 10rem !important;
             }
             
             .display-4 {
-                font-size: 4.5rem;
+                font-size: 3.5rem !important;
             }
             
             .lead {
-                font-size: 1.75rem;
+                font-size: 1.5rem !important;
             }
             
             .btn-lg {
-                padding: 1.25rem 2.5rem;
-                font-size: 1.25rem;
-            }
-            
-            .service-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
-            .process-step-number {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
-            .price {
-                font-size: 4.5rem;
+                padding: 1.25rem 2.5rem !important;
+                font-size: 1.25rem !important;
             }
         }
         
-        /* Ориентация устройства */
+        /* Ландшафтная ориентация на мобильных */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero-section {
-                padding-top: 6rem;
-                padding-bottom: 3rem;
+                padding-top: 5rem !important;
+                padding-bottom: 2rem !important;
                 min-height: auto;
             }
             
             .navbar {
                 padding: 0.5rem 0;
-            }
-            
-            .section {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
             }
         }
         
@@ -794,108 +399,20 @@
             }
         }
         
-        /* Темная тема (опционально) */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --dark-text: #f8f9fa;
-                --dark-text-2: #e9ecef;
-                --light-text: #adb5bd;
-                --light-text-2: #6c757d;
-                --white: #212529;
-                --bg-light: #1a1d20;
-                --border-color: #495057;
-                --border-color-2: #6c757d;
-                --light-blue: #2d3748;
-                --light-blue-2: #4a5568;
-                --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-                --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-                --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
-            }
-            
-            .hero-section {
-                background: linear-gradient(135deg, #1a1d20 0%, #2d3748 100%);
-            }
-            
-            .card {
-                background-color: #2d3748;
-            }
-            
-            .footer {
-                background-color: #1a1d20;
-            }
-            
-            .contact-form .form-control {
-                background-color: #2d3748;
-                color: #f8f9fa;
-                border-color: #495057;
-            }
-            
-            .contact-form .form-control:focus {
-                background-color: #2d3748;
-                color: #f8f9fa;
-            }
-            
-            .form-floating>label {
-                color: #adb5bd;
-            }
-        }
-        
         /* Печать */
         @media print {
-            .navbar, .btn, .footer, .hero-section:before, .hero-section:after {
+            .navbar, .btn, .footer {
                 display: none !important;
             }
             
-            body {
-                font-size: 12pt;
-                line-height: 1.4;
-                color: #000;
-                background: #fff;
-            }
-            
-            .container {
-                width: 100%;
-                max-width: 100%;
-                padding: 0;
-            }
-            
-            .section, .section-lg, .section-xl {
-                padding: 1rem 0;
-                page-break-inside: avoid;
-            }
-            
-            .hero-section {
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-            }
-            
-            a {
-                color: #000;
-                text-decoration: underline;
-            }
-            
-            a[href]:after {
-                content: " (" attr(href) ")";
-                font-size: 90%;
+            .section, .hero-section {
+                padding: 1rem 0 !important;
             }
             
             .card {
-                box-shadow: none;
-                border: 1px solid #ddd;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
             }
-        }
-        
-        /* Улучшение доступности для клавиатурной навигации */
-        *:focus {
-            outline: 3px solid rgba(58, 134, 255, 0.5);
-            outline-offset: 2px;
-        }
-        
-        /* Улучшение читаемости для людей с дислексией */
-        .dyslexia-friendly {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
-            letter-spacing: 0.05em;
-            line-height: 1.8;
         }
     </style>
 </head>
@@ -904,8 +421,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">Nikita Minaev</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -914,9 +431,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#process">Process</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#audit">Audit Details</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pricing">Pricing</a>
@@ -930,23 +444,23 @@
     </nav>
 
     <!-- Hero секция -->
-    <section class="hero-section section-xl">
+    <section class="hero-section" style="padding-top: 100px; padding-bottom: 100px;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0 animate-on-scroll">
-                    <h1 class="display-3 fw-bold mb-4">Nikita Minaev</h1>
-                    <h2 class="display-5 text-primary-custom mb-4">UX & First Impression Audits for Early-Stage Products</h2>
-                    <p class="lead mb-5">I help early-stage products improve clarity, trust, and first-time user experience — so users don't bounce in the first minute.</p>
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-3">Nikita Minaev</h1>
+                    <h2 class="h3 text-primary-custom mb-4">UX & First Impression Audits for Early-Stage Products</h2>
+                    <p class="lead mb-4">I help early-stage products improve clarity, trust, and first-time user experience — so users don't bounce in the first minute.</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="#contact" class="btn btn-primary-custom btn-lg">Get a Free Pre-Audit</a>
                         <a href="#process" class="btn btn-outline-custom btn-lg">How It Works</a>
                     </div>
                 </div>
-                <div class="col-lg-5 animate-on-scroll">
-                    <div class="card p-4 p-md-5 border-0 bg-light-custom-2">
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="card p-4 border-0 bg-light-custom">
                         <div class="card-body">
-                            <h3 class="card-title mb-4">Best fit for:</h3>
-                            <ul class="feature-list mb-0">
+                            <h4 class="mb-3">Best fit for:</h4>
+                            <ul class="list-unstyled feature-list">
                                 <li><i class="bi bi-check-circle-fill"></i> Early-stage startups</li>
                                 <li><i class="bi bi-check-circle-fill"></i> Solo founders or small teams</li>
                                 <li><i class="bi bi-check-circle-fill"></i> Products preparing to launch or recently launched</li>
@@ -960,79 +474,67 @@
     </section>
 
     <!-- Сервисы -->
-    <section id="services" class="section-lg bg-light-custom">
+    <section id="services" class="section bg-light-custom" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="section-title section-title-center">What I Do</h2>
-                    <p class="lead text-center mb-0">I review early-stage websites and apps with a focus on:</p>
+                    <h2 class="section-title">What I Do</h2>
+                    <p class="lead">I review early-stage websites and apps with a focus on:</p>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-clock"></i>
-                            </div>
-                            <h4 class="card-title text-center">First Impression</h4>
-                            <p class="card-text text-center">First 10–30 seconds experience analysis to understand what users see and feel immediately.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-clock"></i>
                         </div>
+                        <h4>First Impression</h4>
+                        <p class="text-muted">First 10–30 seconds experience analysis to understand what users see and feel immediately.</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-bullseye"></i>
-                            </div>
-                            <h4 class="card-title text-center">Clarity of Value</h4>
-                            <p class="card-text text-center">Evaluating how clearly your product communicates its value and next steps for users.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-bullseye"></i>
                         </div>
+                        <h4>Clarity of Value</h4>
+                        <p class="text-muted">Evaluating how clearly your product communicates its value and next steps for users.</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-eye"></i>
-                            </div>
-                            <h4 class="card-title text-center">Visual Trust & UI Cleanliness</h4>
-                            <p class="card-text text-center">Assessing visual design elements that build (or break) user trust and perception.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-eye"></i>
                         </div>
+                        <h4>Visual Trust & UI Cleanliness</h4>
+                        <p class="text-muted">Assessing visual design elements that build (or break) user trust and perception.</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-phone"></i>
-                            </div>
-                            <h4 class="card-title text-center">Mobile Usability</h4>
-                            <p class="card-text text-center">Testing and optimizing the mobile experience for on-the-go users.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-phone"></i>
                         </div>
+                        <h4>Mobile Usability</h4>
+                        <p class="text-muted">Testing and optimizing the mobile experience for on-the-go users.</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-speedometer2"></i>
-                            </div>
-                            <h4 class="card-title text-center">Friction Detection</h4>
-                            <p class="card-text text-center">Identifying small issues that quietly kill engagement and conversion rates.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-speedometer2"></i>
                         </div>
+                        <h4>Friction Detection</h4>
+                        <p class="text-muted">Identifying small issues that quietly kill engagement and conversion rates.</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 animate-on-scroll">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="service-icon mx-auto">
-                                <i class="bi bi-calendar-check"></i>
-                            </div>
-                            <h4 class="card-title text-center">Async Process</h4>
-                            <p class="card-text text-center">Everything is async — no calls, no meetings, just clear, actionable feedback.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-calendar-check"></i>
                         </div>
+                        <h4>Async Process</h4>
+                        <p class="text-muted">Everything is async — no calls, no meetings, just clear, actionable feedback.</p>
                     </div>
                 </div>
             </div>
@@ -1040,75 +542,67 @@
     </section>
 
     <!-- Процесс -->
-    <section id="process" class="section-lg">
+    <section id="process" class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="section-title section-title-center">How It Works</h2>
-                    <p class="lead text-center mb-0">Simple and straightforward process designed for busy founders.</p>
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="lead">Simple and straightforward process designed for busy founders.</p>
                 </div>
             </div>
             <div class="row g-4 mb-5">
-                <div class="col-md-4 animate-on-scroll">
-                    <div class="card h-100 border-0 bg-light-custom">
-                        <div class="card-body text-center p-4">
-                            <div class="process-step">
-                                <div class="process-step-number">1</div>
-                                <h4 class="card-title">Share Your Product</h4>
-                                <p class="card-text">You share a link to your website or app along with any specific concerns you have.</p>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">1</div>
+                            <h4>Share Your Product</h4>
+                            <p>You share a link to your website or app along with any specific concerns you have.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 animate-on-scroll">
-                    <div class="card h-100 border-0 bg-light-custom">
-                        <div class="card-body text-center p-4">
-                            <div class="process-step">
-                                <div class="process-step-number">2</div>
-                                <h4 class="card-title">Free Pre-Audit</h4>
-                                <p class="card-text">I do a short pre-audit and share 2–3 high-level observations within 24 hours.</p>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">2</div>
+                            <h4>Free Pre-Audit</h4>
+                            <p>I do a short pre-audit and share 2–3 high-level observations within 24 hours.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 animate-on-scroll">
-                    <div class="card h-100 border-0 bg-light-custom">
-                        <div class="card-body text-center p-4">
-                            <div class="process-step">
-                                <div class="process-step-number">3</div>
-                                <h4 class="card-title">Full UX Audit</h4>
-                                <p class="card-text">If the pre-audit is useful, I prepare a comprehensive UX audit with actionable insights.</p>
-                            </div>
+                <div class="col-lg-4">
+                    <div class="card p-4 border-0 bg-light-custom">
+                        <div class="card-body text-center">
+                            <div class="display-6 text-primary-custom mb-3">3</div>
+                            <h4>Full UX Audit (Optional)</h4>
+                            <p>If the pre-audit is useful, I prepare a comprehensive UX audit with actionable insights.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div id="audit" class="row animate-on-scroll">
+            <div class="row">
                 <div class="col-12">
-                    <div class="card border-0 bg-light-custom p-4 p-md-5">
-                        <div class="card-body">
-                            <h3 class="card-title mb-4">What's Included in a Full UX Audit</h3>
-                            <p class="lead mb-4">You'll receive a concise PDF (1–2 pages) with:</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="feature-list">
-                                        <li><i class="bi bi-check-circle-fill"></i> Clear list of UX & UI issues</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> Screenshots with explanations</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> Priority ranking (what to fix first)</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="feature-list">
-                                        <li><i class="bi bi-check-circle-fill"></i> Quick wins vs deeper improvements</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> Focus on first-time and mobile users</li>
-                                        <li><i class="bi bi-check-circle-fill"></i> No fluff, no generic advice</li>
-                                    </ul>
-                                </div>
+                    <div class="card p-5 bg-light-custom border-0">
+                        <h3 class="mb-4">What's Included in a Full UX Audit</h3>
+                        <p class="lead mb-4">You'll receive a concise PDF (1–2 pages) with:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Clear list of UX & UI issues</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Screenshots with explanations</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Priority ranking (what to fix first)</li>
+                                </ul>
                             </div>
-                            <div class="mt-4 pt-3 border-top">
-                                <p class="mb-0"><i class="bi bi-arrow-right-circle text-primary-custom me-2"></i><strong>Optional:</strong> I can help fix or redesign key parts in Figma if needed.</p>
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Quick wins vs deeper improvements</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Focus on first-time and mobile users</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> No fluff, no generic advice</li>
+                                </ul>
                             </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="fst-italic">Optionally, I can help fix or redesign key parts in Figma if needed.</p>
                         </div>
                     </div>
                 </div>
@@ -1117,7 +611,7 @@
     </section>
 
     <!-- Цены -->
-    <section id="pricing" class="section-lg bg-light-custom">
+    <section id="pricing" class="section bg-light-custom" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
@@ -1126,58 +620,53 @@
                 </div>
             </div>
             <div class="row justify-content-center g-4">
-                <div class="col-md-6 col-lg-4 animate-on-scroll">
-                    <div class="card pricing-card h-100">
-                        <div class="card-body p-4">
-                            <h4 class="card-title text-center mb-3">Pre-Audit</h4>
-                            <div class="price text-center mb-3">Free</div>
-                            <p class="text-muted text-center mb-4">Get started with no commitment</p>
-                            <ul class="feature-list mb-4">
-                                <li><i class="bi bi-check text-primary-custom"></i> 2–3 high-level observations</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Delivered within 24 hours</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Actionable insights</li>
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Pre-Audit</h4>
+                            <h2 class="display-4 fw-bold mb-3">Free</h2>
+                            <p class="text-muted mb-4">Get started with no commitment</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>2–3 high-level observations</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Delivered within 24 hours</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Actionable insights</li>
                             </ul>
-                            <div class="text-center mt-auto">
-                                <a href="#contact" class="btn btn-outline-custom w-100">Get Free Pre-Audit</a>
-                            </div>
+                            <a href="#contact" class="btn btn-outline-custom w-100">Get Free Pre-Audit</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 animate-on-scroll">
-                    <div class="card pricing-card featured h-100">
-                        <div class="card-body p-4">
-                            <h4 class="card-title text-center mb-3">Full UX Audit</h4>
-                            <div class="price text-center mb-3">$XX</div>
-                            <p class="text-muted text-center mb-4">Comprehensive analysis</p>
-                            <ul class="feature-list mb-4">
-                                <li><i class="bi bi-check text-primary-custom"></i> 1–2 page PDF with concrete issues</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Screenshots with explanations</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Priority ranking</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Quick wins vs deeper improvements</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Focus on first-time & mobile users</li>
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100 featured">
+                        <div class="card-body text-center">
+                            <span class="badge bg-primary-custom rounded-pill mb-3 py-2 px-3">Most Popular</span>
+                            <h4 class="card-title mb-3">Full UX Audit</h4>
+                            <h2 class="display-4 fw-bold mb-3">$XX</h2>
+                            <p class="text-muted mb-4">Comprehensive analysis</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>1–2 page PDF with concrete issues</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Screenshots with explanations</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Priority ranking</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Quick wins vs deeper improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Focus on first-time & mobile users</li>
                             </ul>
-                            <div class="text-center mt-auto">
-                                <a href="#contact" class="btn btn-primary-custom w-100">Order Full Audit</a>
-                            </div>
+                            <a href="#contact" class="btn btn-primary-custom w-100">Order Full Audit</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 col-lg-4 animate-on-scroll">
-                    <div class="card pricing-card h-100">
-                        <div class="card-body p-4">
-                            <h4 class="card-title text-center mb-3">Fix / Redesign Support</h4>
-                            <div class="price text-center mb-3">Custom</div>
-                            <p class="text-muted text-center mb-4">Tailored to your needs</p>
-                            <ul class="feature-list mb-4">
-                                <li><i class="bi bi-check text-primary-custom"></i> Figma design improvements</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> UI fixes and enhancements</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Deeper UX improvements</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Personalized support</li>
-                                <li><i class="bi bi-check text-primary-custom"></i> Flexible engagement</li>
+                <div class="col-lg-4">
+                    <div class="card pricing-card p-4 h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Fix / Redesign Support</h4>
+                            <h2 class="display-4 fw-bold mb-3">Custom</h2>
+                            <p class="text-muted mb-4">Tailored to your needs</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Figma design improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>UI fixes and enhancements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Deeper UX improvements</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Personalized support</li>
+                                <li class="mb-2"><i class="bi bi-check text-primary-custom me-2"></i>Flexible engagement</li>
                             </ul>
-                            <div class="text-center mt-auto">
-                                <a href="#contact" class="btn btn-outline-custom w-100">Discuss Project</a>
-                            </div>
+                            <a href="#contact" class="btn btn-outline-custom w-100">Discuss Project</a>
                         </div>
                     </div>
                 </div>
@@ -1186,7 +675,7 @@
     </section>
 
     <!-- Контакт -->
-    <section id="contact" class="section-lg">
+    <section id="contact" class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
@@ -1195,12 +684,12 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
-                    <div class="card border-0 shadow-lg p-4 p-md-5 animate-on-scroll">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 p-md-5">
                         <div class="card-body">
-                            <form id="contactForm" class="contact-form">
+                            <form id="contactForm">
                                 <div class="row mb-4">
-                                    <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                                             <label for="name">Your Name</label>
@@ -1240,33 +729,38 @@
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="row">
+                <div class="col-lg-6">
                     <h3 class="h4 mb-3">Nikita Minaev</h3>
-                    <p class="mb-2">UX & First Impression Audits for Early-Stage Products</p>
-                    <p class="text-muted small">Helping early-stage products improve clarity, trust, and first-time user experience.</p>
+                    <p class="mb-4">UX & First Impression Audits for Early-Stage Products</p>
+                    <p class="text-muted">Helping early-stage products improve clarity, trust, and first-time user experience.</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="social-links d-flex justify-content-lg-end">
-                        <a href="#" aria-label="Twitter">
-                            <i class="bi bi-twitter"></i>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="#" aria-label="Dribbble">
-                            <i class="bi bi-dribbble"></i>
-                        </a>
-                        <a href="mailto:hello@example.com" aria-label="Email">
-                            <i class="bi bi-envelope"></i>
-                        </a>
+                    <div class="d-flex justify-content-lg-end">
+                        <div>
+                            <h5 class="mb-3">Connect</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-twitter fs-5"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-linkedin fs-5"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-dribbble fs-5"></i>
+                                </a>
+                                <a href="mailto:hello@example.com" class="text-decoration-none text-primary-custom">
+                                    <i class="bi bi-envelope fs-5"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <hr class="my-5">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="text-muted mb-0">&copy; <span id="currentYear"></span> Nikita Minaev. All rights reserved.</p>
+                    <p class="text-muted">&copy; <span id="currentYear"></span> Nikita Minaev. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -1276,33 +770,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Установка текущего года в футере
+        // Установка текущего года
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
         // Обработчик отправки формы
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Получение значений формы
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const productUrl = document.getElementById('productUrl').value;
             
-            // В реальном приложении здесь будет отправка данных на сервер
-            // Для демо показать уведомление
             alert(`Thanks ${name}! I've received your request and will review ${productUrl} within 24 hours. I'll send my observations to ${email}.`);
             
-            // Сброс формы
             document.getElementById('contactForm').reset();
             
-            // Прокрутка к верху
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
         
-        // Плавная прокрутка для навигационных ссылок
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1316,15 +805,6 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Закрыть мобильное меню при клике на ссылку
-                    if (window.innerWidth < 992) {
-                        const navbarToggler = document.querySelector('.navbar-toggler');
-                        const navbarCollapse = document.querySelector('.navbar-collapse');
-                        if (navbarCollapse.classList.contains('show')) {
-                            navbarToggler.click();
-                        }
-                    }
                 }
             });
         });
@@ -1336,108 +816,39 @@
                 navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
                 navbar.style.padding = '0.5rem 0';
             } else {
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
                 navbar.style.padding = '1rem 0';
             }
         });
         
-        // Анимация при скролле
-        function checkScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        // Проверка при загрузке и прокрутке
-        window.addEventListener('load', checkScroll);
-        window.addEventListener('scroll', checkScroll);
-        
-        // Активация пунктов навигации при прокрутке
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
+        // Закрытие мобильного меню при клике на ссылку
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 992) {
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
                 }
             });
         });
         
-        // Обработка клавиатурной навигации
-        document.addEventListener('keydown', function(e) {
-            // Пропуск навигации при нажатии Tab
-            if (e.key === 'Tab') {
-                document.body.classList.add('user-is-tabbing');
+        // Адаптация для мобильных устройств
+        function handleMobileLayout() {
+            if (window.innerWidth < 768) {
+                // Центрирование заголовков секций на мобильных
+                document.querySelectorAll('.section-title').forEach(title => {
+                    if (!title.classList.contains('section-title-center')) {
+                        title.classList.add('section-title-center');
+                    }
+                });
             }
-        });
-        
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('user-is-tabbing');
-        });
-        
-        // Адаптация изображений (если они будут добавлены)
-        function handleImageResize() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                if (window.innerWidth < 768) {
-                    img.style.maxWidth = '100%';
-                    img.style.height = 'auto';
-                }
-            });
         }
         
-        window.addEventListener('resize', handleImageResize);
-        window.addEventListener('load', handleImageResize);
-        
-        // Поддержка сенсорных устройств
-        if ('ontouchstart' in window) {
-            document.body.classList.add('touch-device');
-            
-            // Улучшение сенсорных взаимодействий
-            const buttons = document.querySelectorAll('button, .btn, a');
-            buttons.forEach(button => {
-                button.style.minHeight = '44px';
-                button.style.minWidth = '44px';
-            });
-        }
-        
-        // Отслеживание ориентации устройства
-        window.addEventListener('orientationchange', function() {
-            // Перерасчет размеров при изменении ориентации
-            setTimeout(checkScroll, 300);
-        });
-        
-        // Предотвращение зума на мобильных устройствах при фокусе на полях ввода
-        let viewport = document.querySelector("meta[name=viewport]");
-        if (viewport && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            document.addEventListener('focusin', function() {
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-            });
-            
-            document.addEventListener('focusout', function() {
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
-            });
-        }
+        // Инициализация при загрузке и изменении размера
+        window.addEventListener('load', handleMobileLayout);
+        window.addEventListener('resize', handleMobileLayout);
     </script>
 </body>
 </html>
